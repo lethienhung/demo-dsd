@@ -7,6 +7,7 @@
     <a class="button--grey" @click="subToMark">Sub</a>
   </div>
 </template>
+
 <script>
   import {
     mapMutations

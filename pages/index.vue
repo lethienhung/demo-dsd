@@ -18,8 +18,8 @@
 <script>
 import AppLogo from '~/components/AppLogo.vue'
 import Mark from '~/components/Mark.vue'
-export default {
 
+export default {
   components: {
     AppLogo,
     Mark
