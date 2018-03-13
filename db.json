@@ -1,15 +1,197 @@
 {
-  "posts": [{
-    "id": 1,
-    "title": "json-server",
-    "author": "typicode"
-  }],
-  "comments": [{
-    "id": 1,
-    "body": "some comment",
-    "postId": 1
-  }],
-  "profile": {
-    "name": "typicode"
-  }
+	"employee": [{
+			"employeeId": 1,
+			"firstName": "Tuấn Anh",
+			"lastName": "Phạm",
+			"dateOfBirth": "14/02/1995",
+			"gender": "Nam"
+		},
+		{
+			"employeeId": 2,
+			"firstName": "Hiệp",
+			"lastName": "Đỗ",
+			"dateOfBirth": "01/05/1995",
+			"gender": "Nam"
+		},
+		{
+			"employeeId": 3,
+			"firstName": "Hưng",
+			"lastName": "Lê",
+			"dateOfBirth": "02/12/1995",
+			"gender": "Nam"
+		},
+		{
+			"employeeId": 4,
+			"firstName": "Bảo Anh",
+			"lastName": "Nguyễn",
+			"dateOfBirth": "08/03/1995",
+			"gender": "Nữ"
+		},
+
+		{
+			"employeeId": 4,
+			"firstName": "Quân",
+			"lastName": "Nguyễn",
+			"dateOfBirth": "02/09/1995",
+			"gender": "Name"
+		}
+	],
+	"waterTank": [{
+			"waterTankId": 1,
+			"Capacity": "500 ml"
+		},
+		{
+			"waterTankId": 2,
+			"Capacity": "500 ml"
+		},
+		{
+			"waterTankId": 3,
+			"Capacity": "500 ml"
+		},
+		{
+			"waterTankId": 4,
+			"Capacity": "500 ml"
+		},
+		{
+			"waterTankId": 5,
+			"Capacity": "500 ml"
+		}
+	],
+	"tree": [{
+			"treeId": 1,
+			"name": "Cây Bàng",
+			"category": "Cây to",
+			"capacity": "500 ml",
+			"locationLong": "123",
+			"locationLat": "123"
+		},
+		{
+			"treeId": 2,
+			"name": "Cây Phong",
+			"category": "Cây to",
+			"capacity": "500 ml",
+			"locationLong": "123",
+			"locationLat": "123"
+		},
+		{
+			"treeId": 3,
+			"name": "Cây ổi",
+			"category": "Cây to",
+			"capacity": "500 ml",
+			"locationLong": "123",
+			"locationLat": "123"
+		},
+		{
+			"treeId": 4,
+			"name": "Cây hoa xấu hổ",
+			"category": "Cây hoa",
+			"capacity": "200 ml",
+			"locationLong": "123",
+			"locationLat": "123"
+		},
+		{
+			"treeId": 5,
+			"name": "Cây hoa cứt lợn",
+			"category": "Cây hoa",
+			"capacity": "200 ml",
+			"locationLong": "123",
+			"locationLat": "123"
+		},
+		{
+			"treeId": 6,
+			"name": "Rau dền",
+			"category": "Cây rau",
+			"capacity": "100 ml",
+			"locationLong": "123",
+			"locationLat": "123"
+		},
+		{
+			"treeId": 7,
+			"name": "Cây khỉ",
+			"category": "Cây bé",
+			"capacity": "250 ml",
+			"locationLong": "123",
+			"locationLat": "123"
+		},
+		{
+			"treeId": 8,
+			"name": "Cây nha đam",
+			"category": "Cây bé",
+			"capacity": "250 ml",
+			"locationLong": "123",
+			"locationLat": "123"
+		},
+		{
+			"treeId": 9,
+			"name": "Cây xương rồng",
+			"category": "Cây bé",
+			"capacity": "250 ml",
+			"locationLong": "123",
+			"locationLat": "123"
+		}
+
+	],
+	"waterSupplies": [
+		{
+			"waterSuppliesId": 1,
+			"capacity": "10000 ml",
+			"locationLong": "456",
+			"locationLat": "456"
+		},
+		{
+			"waterSuppliesId": 2,
+			"capacity": "15000 ml",
+			"locationLong": "456",
+			"locationLat": "456"
+		},
+		{
+			"waterSuppliesId": 3,
+			"capacity": "15000 ml",
+			"locationLong": "456",
+			"locationLat": "456"
+		},
+		{
+			"waterSuppliesId": 4,
+			"capacity": "35000 ml",
+			"locationLong": "456",
+			"locationLat": "456"
+		},
+		{
+			"waterSuppliesId": 5,
+			"capacity": "25000 ml",
+			"locationLong": "456",
+			"locationLat": "456"
+		},
+		{
+			"waterSuppliesId": 6,
+			"capacity": "25000 ml",
+			"locationLong": "456",
+			"locationLat": "456"
+		},
+		{
+			"waterSuppliesId": 7,
+			"capacity": "20000 ml",
+			"locationLong": "456",
+			"locationLat": "456"
+		},
+		{
+			"waterSuppliesId": 8,
+			"capacity": "19000 ml",
+			"locationLong": "456",
+			"locationLat": "456"
+		},
+		{
+			"waterSuppliesId": 9,
+			"capacity": "17000 ml",
+			"locationLong": "456",
+			"locationLat": "456"
+		},
+		{
+			"waterSuppliesId": 10,
+			"capacity": "16000 ml",
+			"locationLong": "456",
+			"locationLat": "456"
+		}
+
+	]
 }
