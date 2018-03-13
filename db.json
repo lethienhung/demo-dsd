@@ -1,8 +1,13 @@
 {
-  "posts": [
-    { "id": 1, "title": "Post 1" },
-    { "id": 2, "title": "Post 2" },
-    { "id": 3, "title": "Post 3" }
+  "tree": [
+    {"id": 1,"name": "Cây xoài","age": 15,"lat": "1.0202822","long": "2.09283838","status": "Sống"},
+    {"id": 2,"name": "Cây Chanh","age": 15,"lat": "1.0202822","long": "2.09283838","status": "Sống"},
+    {"id": 3,"name": "Cây Táo","age": 15,"lat": "1.0202822","long": "2.09283838","status": "Sống"},
+    {"id": 4,"name": "Cây Ổi","age": 15,"lat": "1.0202822","long": "2.09283838","status": "Sống"},
+    {"id": 5,"name": "Cây lê","age": 15,"lat": "1.0202822","long": "2.09283838","status": "Sống"},
+    {"id": 6,"name": "Cây Dừa","age": 15,"lat": "1.0202822","long": "2.09283838","status": "Sống"},
+    {"id": 7,"name": "Cây Lạc","age": 15,"lat": "1.0202822","long": "2.09283838","status": "Sống"}
+
   ],
   "comments": [
     { "id": 1, "body": "some comment", "postId": 1 },
