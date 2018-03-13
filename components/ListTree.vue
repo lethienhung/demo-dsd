@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li v-for="tree in treelist" :key="tree.index">
-      <a class="btn btn-primary">{{tree.name}}</a>
+      <nuxt-link class="btn btn-primary" :to="{path: '/tree/'+tree.id }">{{tree.name}}</nuxt-link>
     </li>
   </ul>
 </template>

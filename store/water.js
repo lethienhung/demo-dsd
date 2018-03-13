@@ -1,14 +1,13 @@
 export const state = () => ({
-  counter: 0,
-
+  percentage: 0,
 })
 
 export const mutations = {
   add(state) {
-    state.counter++
+    state.percentage++
   },
   sub(state) {
-    state.counter--
+    state.percentage--
   },
 
 }

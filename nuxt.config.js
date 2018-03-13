@@ -73,13 +73,16 @@ module.exports = {
       '/3',
       '/4',
       '/5',
+      '/posts/1'
     ]
   },
   /*
    ** Customize the progress bar color
    */
   loading: {
-    color: '#3B8070'
+    color: '#4FC08D',
+    failedColor: '#bf5050',
+    duration: 1500
   },
   /*
    ** Build configuration

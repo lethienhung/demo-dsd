@@ -5,7 +5,7 @@ import createPersistedState from 'vuex-persistedstate'
 
 
 // Here we setup messages output to `mini-toastr`
-// const store = new Vuex.Store ({
+// const store = new Vuex.Store({
 //   plugins: [createPersistedState()]
 // })
 
