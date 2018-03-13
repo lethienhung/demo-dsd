@@ -1,18 +1,18 @@
 <template>
   <section class="container">
     <ul>
-      <li v-if="percentage>=10" :style="{color: alive, fontSize: fontSize + 'px'}">Cây:{{name}}</li>
-      <li v-else :style="{color: dead, fontSize: fontSize + 'px'}">Cây: {{name}}</li>
-      <li>Tuổi:{{age}}</li>
+      <li v-if="percentage>=10" :style="{color: alive, fontSize: fontSize + 'px'}">Cây:{{tree.name}}</li>
+      <li v-else :style="{color: dead, fontSize: fontSize + 'px'}">Cây: {{tree.name}}</li>
+      <li>Tuổi:{{tree.age}}</li>
 
-      <li>Vị trí:{{lat}}</li>
+      <li>Vị trí:{{tree.lat}}</li>
 
-      <li>Vị trí:{{long}}</li>
-      <li v-if="status==='Sống'" v-elseif="status==='Chết'" :style="{color: 'blue'}">Tình trạng:{{status}}</li>
+      <li>Vị trí:{{tree.long}}</li>
+      <li v-if="tree.status==='Sống'" :style="{color: 'blue'}">Tình trạng:{{tree.status}}</li>
 
-      <li v-else :style="{color: 'red'}">Tình trạng:{{status}}</li>
+      <li v-else :style="{color: 'red'}">Tình trạng:{{tree.status}}</li>
     </ul>
-    <div v-if="percentage<10 & status==='Sống'">
+    <div v-if="percentage<10 & tree.status==='Sống'">
       <h1>
         <b>Percentage: {{percentage}}</b>
       </h1>
@@ -20,11 +20,12 @@
       <a class="button--green" @keyup.enter="addToPercentage" @click="addToPercentage">Add</a>
       <a class="button--grey" @click="subToPercentage">Sub</a>
     </div>
-    <button v-if="status==='Sống'" @click="markAsDead">Đã chết</button>
+    <button v-if="tree.status==='Sống'" @click="markAsDead">Đã chết</button>
   </section>
 </template>
 
 <script>
+  import axios from 'axios'
   import {
     mapMutations
   } from 'vuex'
@@ -74,25 +75,21 @@
     }) {
       return !isNaN(+params.id)
     },
-
-    asyncData({
-      params,
-      env,
-      error
+    async asyncData({
+      params
     }) {
-      const tree = env.tree.find((tree) => String(tree.id) === params.id)
-      if (!tree) {
-        return error({
-          message: 'Tree is dead',
-          statusCode: 404
-        })
+      // We can use async/await ES6 feature
+      let {
+        data
+      } = await axios.get(`https://my-json-server.typicode.com/chubi142/demo-dsd/tree/${params.id}`)
+      return {
+        tree: data
       }
-      return tree
     },
 
     head() {
       return {
-        title: this.name
+        title: this.tree.name
       }
     }
   }

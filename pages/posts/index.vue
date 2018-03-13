@@ -21,7 +21,7 @@
       params
     }) {
       // We can return a Promise instead of calling the callback
-      return axios.get('https://jsonplaceholder.typicode.com/posts')
+      return axios.get('https://my-json-server.typicode.com/chubi142/demo-dsd/posts')
         .then((res) => {
           return {
             posts: res.data.slice(0, 5)

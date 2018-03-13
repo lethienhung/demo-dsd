@@ -2,6 +2,8 @@
   <div class="container">
     <h1>{{ post.title }}</h1>
     <pre>{{ post.body }}</pre>
+    <h4>{{post.counter}}</h4>
+    <button @click="addCounter">Add</button>
     <p>
       <nuxt-link to="/posts">Back to the list</nuxt-link>
     </p>
@@ -18,7 +20,7 @@
       // We can use async/await ES6 feature
       let {
         data
-      } = await axios.get(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
+      } = await axios.get(`https://my-json-server.typicode.com/chubi142/demo-dsd/posts/${params.id}`)
       return {
         post: data
       }
@@ -26,6 +28,12 @@
     head() {
       return {
         title: this.post.title
+      }
+    },
+
+    methods: {
+      addCounter() {
+        return this.post.counter++;
       }
     }
   }

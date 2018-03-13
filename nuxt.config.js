@@ -28,44 +28,7 @@ module.exports = {
       href: '/favicon.ico'
     }]
   },
-  env: {
-    tree: [{
-      id: "1",
-      name: "Cây xoài",
-      age: "15",
-      lat: "1.0202822",
-      long: "2.09283838",
-      status: "Sống"
-    }, {
-      id: "2",
-      name: "Cây Sung",
-      age: "15",
-      lat: "1.0202822",
-      long: "2.09283838",
-      status: "Sống"
-    }, {
-      id: "3",
-      name: "Cây Táo",
-      age: "15",
-      lat: "1.0202822",
-      long: "2.09283838",
-      status: "Sống"
-    }, {
-      id: "4",
-      name: "Cây ổi",
-      age: "15",
-      lat: "1.0202822",
-      long: "2.09283838",
-      status: "Sống"
-    }, {
-      id: "5",
-      name: "Cây Chuối",
-      age: "15",
-      lat: "1.0202822",
-      long: "2.09283838",
-      status: "Sống"
-    }]
-  },
+
   generate: {
     routes: [
       '/1',
@@ -73,7 +36,12 @@ module.exports = {
       '/3',
       '/4',
       '/5',
-      '/posts/1'
+      '/tree/1',
+      '/tree/2',
+      '/tree/3',
+      '/tree/4',
+      '/tree/5',
+      '/tree/6',
     ]
   },
   /*
