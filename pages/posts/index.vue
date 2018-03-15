@@ -1,69 +1,46 @@
 <template>
   <div class="container">
-    <h1>Blog</h1>
-    <ul>
-      <li v-for="(post, index) in posts" :key="index">
-        <nuxt-link :to="{ name: 'posts-id', params: { id: post.id } }">{{ post.title }}</nuxt-link>
-      </li>
-    </ul>
-    <p>
-      <nuxt-link to="/">Back to home page</nuxt-link>
-    </p>
+      <button @click="onSubmit" class="button is-outlined">Submit</button>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
-
   export default {
-    asyncData({
-      req,
-      params
-    }) {
-      // We can return a Promise instead of calling the callback
-      return axios.get('https://my-json-server.typicode.com/chubi142/demo-dsd/posts')
-        .then((res) => {
-          return {
-            posts: res.data.slice(0, 5)
-          }
-        })
+    data() {
+      return {
+        isLogin: true,
+        treeId: "",
+        name: "",
+        lat: "",
+        long: ""
+      }
     },
-    head: {
-      title: 'List of posts'
+    methods: {
+      onSubmit() {
+        axios.post('https://fir-dsd.firebaseio.com/tree.json', {
+          treeId: "1",
+          name: "Cây táo"
+        }).then(result => console.log(result))
+      }
     }
   }
 
 </script>
 
 <style scoped>
-  .container {
-    width: 70%;
-    margin: auto;
-    text-align: center;
-    padding-top: 100px;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  ul li {
-    border: 1px #ddd solid;
+  .admin-auth-page {
     padding: 20px;
-    text-align: left;
   }
 
-  ul li a {
-    color: gray;
-  }
-
-  p {
-    font-size: 20px;
-  }
-
-  a {
-    color: #41B883;
+  .auth-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px #ccc;
+    width: 300px;
+    margin: auto;
+    padding: 10px;
+    box-sizing: border-box;
   }
 
 </style>

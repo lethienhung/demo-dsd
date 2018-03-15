@@ -1,18 +1,23 @@
 <template>
   <section class="container">
     <div>
-      <list-tree/>
+      <ul>
+        <li v-for="tree in loadedTrees" :key="tree.treeId">
+          <nuxt-link class="btn btn-primary" :to="{path: '/tree/'+tree.id }">{{tree.name}}</nuxt-link>
+        </li>
+      </ul>
     </div>
 
   </section>
 </template>
 
 <script>
-  import ListTree from '~/components/ListTree.vue'
 
-  export default {
-    components: {
-      ListTree,
+  export default { 
+    computed: {
+      loadedTrees() {
+        return this.$store.getters.loadedTrees;
+      }
     }
   }
 

@@ -2,9 +2,14 @@ module.exports = {
   /*
    ** Headers of the page
    */
+  modules: [
+    '@nuxtjs/bulma',
+    '@nuxtjs/axios'
+  ],
+
   plugins: [{
-    src: '~/plugins/vuex-persistedstate',
-    ssr: false
+    src: '~plugins/vuex-persistedstate.js',
+    // ssr: false
   }],
 
   head: {
@@ -28,22 +33,10 @@ module.exports = {
       href: '/favicon.ico'
     }]
   },
-
-  generate: {
-    routes: [
-      '/1',
-      '/2',
-      '/3',
-      '/4',
-      '/5',
-      '/tree/1',
-      '/tree/2',
-      '/tree/3',
-      '/tree/4',
-      '/tree/5',
-      '/tree/6',
-    ]
+  env: {
+    fbAPIKey: 'AIzaSyBvhVZ4GZC7wQo9sLEl5rJov8tot2mYJuA'
   },
+
   /*
    ** Customize the progress bar color
    */

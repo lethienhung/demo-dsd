@@ -2,11 +2,9 @@
   <section class="container">
     <div>
       <ul>
-        Tên: <li>{{tree.name}}</li>
-        ID: <li>{{tree.treeId}}</li>
-        Loại: <li>{{tree.category}}</li>
-        Thời gian: <li>{{tree.created_at}}</li>
-        Ghi chú: <li>{{tree.note}}</li>
+        Tên: <li>{{employee.firstName}}</li>
+        ID: <li>{{employee.employeeId}}</li>
+     
       </ul>
     </div>
 
@@ -22,9 +20,9 @@
       // We can use async/await ES6 feature
       let {
         data
-      } = await axios.get(`https://fir-dsd.firebaseio.com/tree/${params.id}/.json`)
+      } = await axios.get(`https://fir-dsd.firebaseio.com/employee/${params.id}/.json`)
       return {
-        tree: data
+        employee: data
       }
     },
   }

@@ -2,11 +2,9 @@
   <section class="container">
     <div>
       <ul>
-        Tên: <li>{{tree.name}}</li>
-        ID: <li>{{tree.treeId}}</li>
-        Loại: <li>{{tree.category}}</li>
-        Thời gian: <li>{{tree.created_at}}</li>
-        Ghi chú: <li>{{tree.note}}</li>
+        <li v-for="emp in loadedEmployees" :key="emp.employeeId">
+          <nuxt-link class="btn btn-primary" :to="{path: '/admin/employee/history'+emp.id }">{{emp.firstName}}</nuxt-link>
+        </li>
       </ul>
     </div>
 
@@ -15,17 +13,18 @@
 
 <script>
   import axios from 'axios'
-  export default { 
-    async asyncData({
+  export default {
+    asyncData({
+      req,
       params
     }) {
-      // We can use async/await ES6 feature
-      let {
-        data
-      } = await axios.get(`https://fir-dsd.firebaseio.com/tree/${params.id}/.json`)
-      return {
-        tree: data
-      }
+      // We can return a Promise instead of calling the callback
+      return axios.get('https://fir-dsd.firebaseio.com/employee.json')
+        .then((res) => {
+          return {
+            loadedEmployees: res.data
+          }
+        })
     },
   }
 
