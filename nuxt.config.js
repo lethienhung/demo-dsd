@@ -7,10 +7,9 @@ module.exports = {
     '@nuxtjs/axios'
   ],
 
-  plugins: [{
-    src: '~plugins/vuex-persistedstate.js',
-    // ssr: false
-  }],
+  plugins: [
+    '~plugins/core-components.js'
+  ],
 
   head: {
     title: 'demo-dsd',

@@ -14,6 +14,7 @@
 <script>
   import axios from 'axios'
   export default { 
+    middleware: ['check-auth', 'auth'],
     async asyncData({
       params
     }) {

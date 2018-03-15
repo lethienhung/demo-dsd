@@ -2,8 +2,8 @@
   <section class="container">
     <div>
       <ul>
-        <li v-for="emp in loadedEmployees" :key="emp.employeeId">
-          <nuxt-link class="btn btn-primary" :to="{path: '/admin/employee/history'+emp.id }">{{emp.firstName}}</nuxt-link>
+        <li v-for="(emp,index) in loadedEmployees" :key="index">
+          <nuxt-link class="btn btn-primary" :to="{path: '/admin/employee/history/'+index }">{{emp.firstName}}</nuxt-link>
         </li>
       </ul>
     </div>
@@ -15,8 +15,7 @@
   import axios from 'axios'
   export default {
     asyncData({
-      req,
-      params
+      req
     }) {
       // We can return a Promise instead of calling the callback
       return axios.get('https://fir-dsd.firebaseio.com/employee.json')
