@@ -29,7 +29,7 @@
             password: this.password
           })
           .then(() => {
-            this.$router.push('/admin/tree');
+            this.$router.push('/admin');
           });
       }
     }

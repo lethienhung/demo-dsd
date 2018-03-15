@@ -113,12 +113,11 @@
         created_at: new Date(),
         capacity: '',
         note: ''
-
       }
     },
     methods: {
       createTree() {
-        axios.post('https://fir-dsd.firebaseio.com/tree.json', {
+        this.$store.dispatch("addTree", {
           treeId: this.treeId,
           name: this.name,
           locationLat: this.locationLat,
@@ -129,10 +128,28 @@
           created_at: this.created_at,
           note: this.note,
           status: "Sống"
-        }).then(result => console.log(result))
-
+        }).then(() => {
+          this.$router.push("/tree");
+        });
       }
     }
+
+    //   createTree() {
+    //     axios.post('https://fir-dsd.firebaseio.com/tree.json?auth='+, {
+    //       treeId: this.treeId,
+    //       name: this.name,
+    //       locationLat: this.locationLat,
+    //       locationLong: this.locationLong,
+    //       age: this.age,
+    //       category: this.category,
+    //       capacity: this.capacity,
+    //       created_at: this.created_at,
+    //       note: this.note,
+    //       status: "Sống"
+    //     }).then(result => console.log(result))
+
+    //   }
+    // }
   }
 
 </script>

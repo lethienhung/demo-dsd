@@ -19,6 +19,9 @@ const createStore = () => {
       setTrees(state, trees) {
         state.loadedTrees = trees
       },
+      addTree(state, tree) {
+        state.loadedTrees.push(tree);
+      },
       setEmployees(state, employees) {
         state.loadedEmployees = employees
       },
@@ -58,6 +61,23 @@ const createStore = () => {
       },
       subWater(context, tree) {
         context.commit('subWater', tree);
+      },
+      addTree(vuexContext, tree) {
+        const createdTree = {
+          ...tree,
+          updatedDate: new Date()
+        };
+        return this.$axios.$post(
+            "https://fir-dsd.firebaseio.com/tree.json?auth=" +
+            vuexContext.state.token,
+            createdTree
+          )
+          .then(data => {
+            vuexContext.commit("addTree", { ...createdTree,
+              id: data.treeId
+            });
+          })
+          .catch(e => console.log(e));
       },
       setTrees(vuexContext, trees) {
         vuexContext.commit("setTrees", trees);
