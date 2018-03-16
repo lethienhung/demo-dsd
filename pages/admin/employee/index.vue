@@ -6,24 +6,44 @@
           <nuxt-link class="btn btn-primary" :to="{path: '/admin/employee/history/'+index }">{{emp.firstName}}</nuxt-link>
         </li>
       </ul>
+      <button @click="checkLogin">Check</button>
+ 
     </div>
-
   </section>
 </template>
 
 <script>
+  import fetch from 'isomorphic-fetch'
+  import firebase from 'firebase'
   import axios from 'axios'
+
+  if (!firebase.apps.length) {
+    firebase.initializeApp({
+      apiKey: "AIzaSyBvhVZ4GZC7wQo9sLEl5rJov8tot2mYJuA",
+      authDomain: "fir-dsd.firebaseapp.com",
+      databaseURL: "https://fir-dsd.firebaseio.com",
+      projectId: "fir-dsd",
+      storageBucket: "fir-dsd.appspot.com",
+      messagingSenderId: "114711168037"
+    });
+
+  }
   export default {
-    asyncData({
-      req
-    }) {
-      // We can return a Promise instead of calling the callback
-      return axios.get('https://fir-dsd.firebaseio.com/employee.json')
-        .then((res) => {
-          return {
-            loadedEmployees: res.data
-          }
+    methods: {
+      checkLogin() {
+        this.$axios.$post('https://www.googleapis.com/identitytoolkit/v3/relyingparty/getAccountInfo?key=AIzaSyBvhVZ4GZC7wQo9sLEl5rJov8tot2mYJuA').then(result => {
+          localStorage.setItem("token", result.idToken);
         })
+          
+          
+      }
+    },
+    async asyncData() {
+      const response = await fetch('https://fir-dsd.firebaseio.com/employee.json')
+      const loadedEmployees = await response.json();
+      return {
+        loadedEmployees
+      }
     },
   }
 

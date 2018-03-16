@@ -5,3 +5,5 @@ import AppControlInput from '@/components/UI/AppControlInput'
 
 Vue.component('AppButton', AppButton)
 Vue.component('AppControlInput', AppControlInput)
+
+

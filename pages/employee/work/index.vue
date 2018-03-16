@@ -1,34 +1,47 @@
 <template>
   <div>
-      <h1>{{water}}</h1>
-      <button @click="addWater">add</button>
-      <button @click="subWater">sub</button>
+    <ul>
+      <li v-for="tree in filteredTree" :key="tree.treeId">{{tree.name}} -
+        <h1>{{tree.capacity}}</h1>
+        <button @click="tree.capacity++">add</button>
+        <button @click="tree.capacity--">sub</button>
+      </li>
+    </ul>
+
   </div>
 </template>
 
 <script>
-    export default {
-        computed : {
-            water(){
-                return this.$store.state.water;
-            },
+  import fetch from 'isomorphic-fetch'
+  export default {
 
-            // remainingTree(){
+    async asyncData() {
+      const response = await fetch('https://fir-dsd.firebaseio.com/tree.json')
+      const listsTree = await response.json();
+      return {
+        listsTree
+      }
+    },
+    computed: {
+      filteredTree() {
+        return this.listsTree.filter((tree) => {
+          return tree.treeId > 5;
+        });
+      },
+      water() {
+        return this.$store.state.water;
+      }
 
-            // },
-            
-            // doneTree(){
+    },
+    methods: {
+      addWater() {
+        this.$store.dispatch('addWater')
 
-            // }
-
-        },
-        methods: {
-            addWater(){
-                this.$store.dispatch('addWater')
-            },
-            subWater(){
-                this.$store.dispatch('subWater')
-            }
-        }
+      },
+      subWater() {
+        this.$store.dispatch('subWater')
+      }
     }
+  }
+
 </script>

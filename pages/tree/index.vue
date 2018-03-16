@@ -12,13 +12,15 @@
 </template>
 
 <script>
-
-  export default { 
+  
+  export default {
+    
     computed: {
       loadedTrees() {
         return this.$store.getters.loadedTrees;
       }
-    }
+    },
+    
   }
 
 </script>

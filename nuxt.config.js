@@ -26,6 +26,7 @@ module.exports = {
         content: 'Demo for distributed system'
       }
     ],
+
     link: [{
       rel: 'icon',
       type: 'image/x-icon',

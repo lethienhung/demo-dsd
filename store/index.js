@@ -1,12 +1,15 @@
 import Vuex from 'vuex'
 import Cookie from "js-cookie"
 import axios from 'axios'
+import firebase from 'firebase'
+import fetch from 'isomorphic-fetch'
 
 const createStore = () => {
   return new Vuex.Store({
     state: {
       loadedTrees: [],
       loadedEmployees: [],
+      water: 0,
       token: null
     },
     mutations: {
@@ -34,6 +37,7 @@ const createStore = () => {
     },
     actions: {
       nuxtServerInit(vuexContext, context) {
+       
         let tree = context.$axios.$get('https://fir-dsd.firebaseio.com/tree.json')
           .then(data => {
             const treeArray = []
@@ -44,15 +48,6 @@ const createStore = () => {
             }
             vuexContext.commit("setTrees", treeArray)
           }).catch(e => context.error(e));
-        // let employee = context.$axios.$get('https://fir-dsd.firebaseio.com/employee.json')
-        //   .then(data => {
-        //     const employeeArray = []
-        //     for (const key in data) {
-        //       treeArray.push({...data[key],id: key})
-        //     }
-        //     vuexContext.commit("setEmployees", employeeArray)
-        //   }).catch(e => context.error(e));
-        //   return {tree :tree, employee: employee}
 
         return tree
       },
@@ -87,12 +82,10 @@ const createStore = () => {
       },
       authenticateUser(vuexContext, authData) {
         let authUrl =
-          "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=" +
-          process.env.fbAPIKey;
+          "https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyBvhVZ4GZC7wQo9sLEl5rJov8tot2mYJuA";
         if (!authData.isLogin) {
           authUrl =
-            "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=" +
-            process.env.fbAPIKey;
+            "https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyBvhVZ4GZC7wQo9sLEl5rJov8tot2mYJuA";
         }
         return this.$axios
           .$post(authUrl, {
